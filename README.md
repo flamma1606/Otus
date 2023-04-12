@@ -1,2 +1,2 @@
 # Otus
-Репозиторий для ДЗ по курсу OTUS Java Basic EDIT 
+Репозиторий для ДЗ по курсу OTUS Java Basic NORM 
