@@ -4,7 +4,6 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 
 public class TesterWithClasses {

@@ -1,5 +1,6 @@
 import java.util.Base64;
 import java.util.Scanner;
+
 // Зарегистрироваться на github.com
 // Установить git
 // Установить JDK и среду разработки
