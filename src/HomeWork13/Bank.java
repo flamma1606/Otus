@@ -7,6 +7,7 @@ public class Bank {
     public static void main(String[] args) {
 
         Map<Customer,List<Account>> storage = new HashMap<>();
+        Map<Customer,List<Integer>> storage2 = new HashMap<>();
 
         Customer customer1 = new Customer(1,"Петр","Петров","Петрович");
         Customer customer2 = new Customer(2,"Иван","Иванов","Иванович");
@@ -22,12 +23,14 @@ public class Bank {
         storage.put(customer2,List.of(account3));
         storage.put(customer3,List.of(account4,account5));
 
-        System.out.println(storage);
+        storage2.put(customer1,List.of(account1.accountNumber, account2.accountNumber));
+        storage2.put(customer2,List.of(account3.accountNumber));
+        storage2.put(customer3,List.of(account4.accountNumber,account5.accountNumber));
 
         storage.get(customer3).forEach(it -> System.out.println("Счет клиента: " + it.accountNumber));
 
-        for (Map.Entry<Customer,List<Account>> map: storage.entrySet()) {
-            if (map.getValue().contains(account3)){
+        for (Map.Entry<Customer,List<Integer>> map: storage2.entrySet()) {
+            if (map.getValue().contains(442301810)){
                 System.out.println("ФИО владельца счета: " + map.getKey());
             }
         }
