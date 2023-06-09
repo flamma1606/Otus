@@ -35,7 +35,14 @@ public class Bank {
         storage2.put(account4.accountNumber, customer3);
         storage2.put(account5.accountNumber, customer3);
 
-        System.out.println("ФИО владельца счета: " + findCustomer(storage2, 342301810));
+        // простой вариант
+
+        Customer customerName = storage2.get(342301810);
+        System.out.println("ФИО владельца счета (первая попытка): " + customerName);
+
+
+        // еще один вариант
+        System.out.println("ФИО владельца счета (еще попытка): " + findCustomer(storage2, 342301810));
     }
 
     private static <K, V> List<V> findCustomer(Map<K, V> map, Object key) {
@@ -49,7 +56,10 @@ public class Bank {
         }
         return valueList;
     }
+
 }
+
+
 
 
 
