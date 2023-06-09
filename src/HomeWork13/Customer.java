@@ -33,6 +33,6 @@ public class Customer {
     }
     @Override
     public String toString() {
-        return firstName + " " + lastName + " " + middleName;
+        return lastName + " " + firstName + " " + middleName;
     }
 }
