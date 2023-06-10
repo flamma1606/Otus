@@ -35,28 +35,14 @@ public class Bank {
         storage2.put(account4.accountNumber, customer3);
         storage2.put(account5.accountNumber, customer3);
 
-        // простой вариант
 
-        Customer customerName = storage2.get(342301810);
-        System.out.println("ФИО владельца счета (первая попытка): " + customerName);
-
-
-        // еще один вариант
+        // O(1)
         System.out.println("ФИО владельца счета (еще попытка): " + findCustomer(storage2, 342301810));
     }
 
-    private static <K, V> List<V> findCustomer(Map<K, V> map, Object key) {
-
-        List<V> valueList = new ArrayList<>();
-
-        for (Map.Entry<K, V> entry : map.entrySet()) {
-            if (entry.getKey().equals(key)) {
-                valueList.add(entry.getValue());
-            }
-        }
-        return valueList;
+    private static <K, V> String findCustomer(Map<K, V> map, Object key) {
+        return String.valueOf(map.get(key));
     }
-
 }
 
 
