@@ -1,0 +1,40 @@
+// Создаем таблицу с вопросами
+
+CREATE TABLE QUESTIONS (
+	question_id SERIAL PRIMARY KEY,
+	text_question VARCHAR(100) NOT NULL
+);
+
+// Добавляем вопросы в таблицу
+INSERT INTO QUESTIONS (text_question)
+VALUES ('В какой стране больше всего любят пиво?'),
+	('А сколько алкоголя в самом крепком пиве?'),
+	('Из какого бокала лучше всего пить ароматное и крепкое пиво?');
+
+//Проверяем
+select * from QUESTIONS;
+
+// Создаем таблицу с ответами
+CREATE TABLE ANSWERS (
+	answer_id SERIAL PRIMARY KEY,
+	question_id INTEGER,
+	text_answer VARCHAR(150) NOT NULL,
+	is_CorrectAnswer BOOLEAN DEFAULT false,
+	FOREIGN KEY (question_id) REFERENCES QUESTIONS (question_id)
+);
+
+// Добавляем ответы с внешним ключом вопроса
+INSERT INTO ANSWERS (question_id,text_answer,is_CorrectAnswer)
+VALUES (1,'Россия',false),
+	(1,'Германия',false),
+	(1,'Чехия',true),
+	(2,'37.5% спирта',false),
+	(2,'44% спирта',false),
+	(2,'67,5% спирта',true),
+	(3,'Бокал',false),
+	(3,'Пинта',false),
+	(3,'Граненый стакан',false),
+	(3,'Снифтер',true);
+
+// Проверяем
+select * from ANSWERS;
