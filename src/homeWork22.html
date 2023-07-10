@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title>Форма добавления информации о студенте</title>
+    <style>
+        h1, h2, h3 {
+            color: black;
+        }
+
+        .students-tab {
+            border: 1px solid steelblue;
+            width: 960px;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+			font-size: 20px;
+        }
+
+
+		.forma-tab {
+            border: 1px solid steelblue;
+            width: 960px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+			font-size: 20px;
+
+        }
+		label 	{
+			float:left;
+		}
+
+		div 	{
+		 margin-bottom: 20px;
+		 clear:both;
+		 text-align:right;
+		}
+
+		input {
+			border: 1px solid steelblue;
+			font-size: 16px;
+			width: 400px;
+        }
+
+		select {
+			border: 1px solid steelblue;
+			font-size: 16px;
+			width: 405px;
+
+        }
+
+		button {
+			font-size: 16px;
+		}
+
+        .students-tab tr td {
+            border: 1px solid steelblue;
+        }
+
+        .students-tab-col1 {
+            width: 250px;
+		.students-tab-col2 {
+            width: 250px;
+		.students-tab-col3 {
+            width: 250px;
+		.students-tab-col4 {
+            width: 250px;
+        }
+
+
+    </style>
+    <script>
+
+	        function addStudent() {
+
+            const studentsTab = document.getElementById("studentsTab").getElementsByTagName("tbody")[0];
+
+			let fioTextBox = document.getElementById("fioTextBox").value;
+
+			const newRow = studentsTab.insertRow(studentsTab.rows.length);
+
+
+            fioTextBox += "";
+            newCell0 = newRow.insertCell(0);
+			newCell0.appendChild(document.createTextNode(fioTextBox));
+
+
+
+			let sexValue = document.getElementById("sex");
+			sex = sexValue.options[sexValue.selectedIndex].text;
+			sex.selectElement += "";
+            newCell1 = newRow.insertCell(1);
+			newCell1.appendChild(document.createTextNode(sex));
+
+
+
+			let birthDate = document.getElementById("birthDate").value ;
+
+            birthDate += "";
+			newCell2 = newRow.insertCell(2);
+			newCell2.appendChild(document.createTextNode(birthDate));
+
+
+			birthDate = new Date(birthDate);
+			today = new Date()
+            let age = Math.floor(( today - birthDate)/31557600000);
+
+            age += "";
+            newCell3 = newRow.insertCell(3);
+			newCell3.appendChild(document.createTextNode(age));
+
+			}
+
+            const table = document.getElementsByTagName("tbody")[1];
+			var amount = 0;
+			let averageAge  =   document.getElementById("averageAge");
+
+			for(var i = 0; i < table.rows.length; i++)
+					{let row = table.rows[i];
+							for (var j = 0; j < row.cells.length; j++) {
+								let cel = row.cells[j];
+
+				}
+            }
+
+alert("7")
+
+		</script>
+
+
+</head>
+<body>
+<h2>
+    Форма добавления информации о студенте
+</h2>
+
+<form>
+    <! <form action = "/my-form" method = "POST">
+
+    <table class="forma-tab" id="formaTab" cellpadding = "10" border = "1">
+        <tr><td>
+            <div>
+                <label for = "fioTextBox">Имя студента:</label>
+                <input class = "element1" style="left: 200px" id = "fioTextBox" name = "fio" type = "text" value = "Введи своё имя">
+            </div>
+
+            <div>
+                <label for = "birthDate">Дата рождения:</label>
+                <input class = "element2" id = "birthDate" name = "birthDate" type = "date" value = "1980-01-01">
+            </div>
+
+            <div>
+                <label>
+                    Пол:
+                </label>
+                <select class = "element3" id = "sex" name = "sex">
+                    <option value = "1" selected>Мужской</option>
+                    <option value = "2">Женский</option>
+                </select>
+            </div>
+
+            <div class = "input-form">
+                <label>
+                    <button onclick = "addStudent()">Добавить</button>
+                </label>
+            </div>
+
+        </td></tr>
+    </table >
+</form>
+    <br>
+
+    <h3>Таблица студентов</h3>
+
+    <br>
+    <table class="students-tab" id="studentsTab" cellpadding = "10" border = "1">
+        <thead>
+        <tr>
+            <th class="students-tab-col1">ФИО студента</th>
+            <th class="students-tab-col2">Пол</th>
+            <th class="students-tab-col3">Дата рождения</th>
+            <th class="students-tab-col4">Возраст</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                Петров Сергей
+            </td>
+            <td>
+                Мужской
+            </td>
+            <td>
+                1982-12-24
+            </td>
+            <td class = "ageStudent">
+                40
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Сергеева Анна
+            </td>
+            <td>
+                Женский
+            </td>
+            <td>
+                1981-11-01
+            </td>
+            <td class = "ageStudent">
+                41
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan = "4">&nbsp;</th>
+        </tr>
+        <tr>
+            <th colspan = "2">Средний возраст <br>студента</th>
+            <th colspan = "2">
+                <pre id = averageAge>81</pre>
+            </th>
+        </tr>
+        </tfoot>
+
+
+    </table>
+</body>
+</html>
